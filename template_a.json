@@ -1,113 +1,121 @@
 {
-  "id": "1234",
-  "name": "RulebookTemplate_A",
-  "metadata":
+	"Id": "1234",
+  "Name": "RulebookTemplate_A",
+  "Metadata":
   {
-    "description": "Rulebook is used to parse worldwide phone numbers...",
-    "version": "1.0",
-    "author": "oh22",
-    "createdAt": "2025-08-20"
+    "Description": "Rulebook is used to parse worldwide phone numbers...",
+    "Version": "1.0",
+    "Author": "oh22",
+    "CreatedAt": "2025-08-20"
   },
-  "domains": [
+  "Domains": [
     {
-      "name": "vendor",
-      "description": "domain_description_a",
-      "dataType": 2
+      "Name": "vendor",
+      "Description": "domain_description_a",
+      "DataType": 2
     },
     {
-      "name": "pickup_date",
-      "description": "domain_description_b",
-      "dataType": 4
+      "Name": "pickup_date",
+      "Description": "domain_description_b",
+      "DataType": 4
     },
     {
-      "name": "code",
-      "description": "domain_description_c",
-      "dataType": 2
+      "Name": "code",
+      "Description": "domain_description_c",
+      "DataType": 2
     }
   ],
-  "rules": [
+  "Rules": [
     {
-      "name": "rule_name_1",
-      "description": "rule_description_1",
-      "version": "1.1",
-      "dqDimension": 1,
-      "isDataflowRule": false,
-      "condition": {
-        "operator": "and",
-        "conditions": [
+      "Name": "rule_name_1",
+      "Description": "rule_description_1",
+      "Version": "1.1",
+      "DQDimension": 1,
+      "IsDataflowRule": false,
+      "Condition": {
+        "Operator": "and",
+        "Value": "",
+        "DomainRef": "",
+        "Conditions": [
           {
-            "domainRef": "vendor",
-            "operator": "eq",
-            "value": 1,
-            "conditions": []
+            "DomainRef": "vendor",
+            "Operator": "eq",
+            "Value": "1",
+            "Conditions": []
           },
           {
-            "domainRef": "pickup_date",
-            "operator": "eq",
-            "value": 1,
-            "conditions": []
+            "DomainRef": "pickup_date",
+            "Operator": "eq",
+            "Value": "1",
+            "Conditions": []
           }
         ]
       },
-      "validSuccessor": "rule_name_2",
-      "invalidSuccessor": "rule_name_2"
+      "ValidSuccessor": "rule_name_2",
+      "InvalidSuccessor": "rule_name_2"
     },
     {
-      "name": "rule_name_2",
-      "description": "rule_description_2",
-      "version": "1.2",
-      "dqDimension": 5,
-      "isDataflowRule": true,
-      "condition": {
-        "operator": "and",
-        "conditions": [
+      "Name": "rule_name_2",
+      "Description": "rule_description_2",
+      "Version": "1.2",
+      "DQDimension": 5,
+      "IsDataflowRule": true,
+      "Condition": {
+        "Operator": "and",
+        "Value": "",
+        "DomainRef": "",
+        "Conditions": [
           {
-            "operator": "neq",
-            "domainRef": "pickup_date",
-            "value": 2,
-            "conditions": []
+            "Operator": "neq",
+            "DomainRef": "pickup_date",
+            "Value": "2",
+            "Conditions": []
           },
           {
-            "operator": "neq",
-            "domainRef": "code",
-            "value": 2,
-            "conditions": []
+            "Operator": "neq",
+            "DomainRef": "code",
+            "Value": "2",
+            "Conditions": []
           }
         ]
       },
-      "validSuccessor": "rule_name_3",
-      "invalidSuccessor": ""
+      "ValidSuccessor": "rule_name_3",
+      "InvalidSuccessor": ""
     },
     {
-      "name": "rule_name_3",
-      "description": "rule_description_3",
-      "version": "1.1",
-      "dqDimension": 2,
-      "isDataflowRule": true,
-      "condition": {
-        "operator": "and",
-        "conditions": [
+      "Name": "rule_name_3",
+      "Description": "rule_description_3",
+      "Version": "1.1",
+      "DQDimension": 2,
+      "IsDataflowRule": true,
+      "Condition": {
+        "Operator": "and",
+        "Value": "",
+        "DomainRef": "",
+        "Conditions": [
           {
-            "domainRef": "code",
-            "operator": "neq",
-            "value": 3,
-            "conditions": []
+            "DomainRef": "code",
+            "Operator": "neq",
+            "Value": "3",
+            "Conditions": []
           },
           {
-            "operator": "or",
-            "conditions": [
+            "Operator": "or",
+            "Value": "",
+            "DomainRef": "",
+            "Conditions": [
               {
-                "domainRef": "vendor",
-                "operator": "eq",
-                "value": 1,
-                "conditions": []
+                "DomainRef": "vendor",
+                "Operator": "eq",
+                "Value": "1",
+                "Conditions": []
               }
             ]
           }
         ]
       },
-      "validSuccessor": "",
-      "invalidSuccessor": ""
+      "ValidSuccessor": "",
+      "InvalidSuccessor": ""
     }
   ]
 }
