@@ -1,0 +1,113 @@
+{
+  "id": "1234",
+  "name": "RulebookTemplate_A",
+  "metadata":
+  {
+    "description": "Rulebook is used to parse worldwide phone numbers...",
+    "version": "1.0",
+    "author": "oh22",
+    "createdAt": "2025-08-20"
+  },
+  "domains": [
+    {
+      "name": "vendor",
+      "description": "domain_description_a",
+      "dataType": 2
+    },
+    {
+      "name": "pickup_date",
+      "description": "domain_description_b",
+      "dataType": 4
+    },
+    {
+      "name": "code",
+      "description": "domain_description_c",
+      "dataType": 2
+    }
+  ],
+  "rules": [
+    {
+      "name": "rule_name_1",
+      "description": "rule_description_1",
+      "version": "1.1",
+      "dqDimension": 1,
+      "isDataflowRule": false,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "domainRef": "vendor",
+            "operator": "eq",
+            "value": 1,
+            "conditions": []
+          },
+          {
+            "domainRef": "pickup_date",
+            "operator": "eq",
+            "value": 1,
+            "conditions": []
+          }
+        ]
+      },
+      "validSuccessor": "rule_name_2",
+      "invalidSuccessor": "rule_name_2"
+    },
+    {
+      "name": "rule_name_2",
+      "description": "rule_description_2",
+      "version": "1.2",
+      "dqDimension": 5,
+      "isDataflowRule": true,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "operator": "neq",
+            "domainRef": "pickup_date",
+            "value": 2,
+            "conditions": []
+          },
+          {
+            "operator": "neq",
+            "domainRef": "code",
+            "value": 2,
+            "conditions": []
+          }
+        ]
+      },
+      "validSuccessor": "rule_name_3",
+      "invalidSuccessor": ""
+    },
+    {
+      "name": "rule_name_3",
+      "description": "rule_description_3",
+      "version": "1.1",
+      "dqDimension": 2,
+      "isDataflowRule": true,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "domainRef": "code",
+            "operator": "neq",
+            "value": 3,
+            "conditions": []
+          },
+          {
+            "operator": "or",
+            "conditions": [
+              {
+                "domainRef": "vendor",
+                "operator": "eq",
+                "value": 1,
+                "conditions": []
+              }
+            ]
+          }
+        ]
+      },
+      "validSuccessor": "",
+      "invalidSuccessor": ""
+    }
+  ]
+}

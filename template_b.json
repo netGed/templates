@@ -1,0 +1,155 @@
+{
+  "id": "4567",
+  "name": "RulebookTemplate_B",
+  "metadata":
+  {
+    "description": "Rulebook is used to validate US-adresses...",
+    "version": "1.0",
+    "author": "oh22",
+    "createdAt": "2025-08-20"
+  },
+  "domains": [
+    {
+      "name": "store",
+      "description": "domain_description_a",
+      "dataType": 1
+    },
+    {
+      "name": "dropoff_date",
+      "description": "domain_description_b",
+      "dataType": 4
+    },
+    {
+      "name": "location",
+      "description": "domain_description_c",
+      "dataType": 2
+    },
+    {
+      "name": "amount",
+      "description": "domain_description_d",
+      "dataType": 2
+    }
+  ],
+  "rules": [
+    {
+      "name": "rule_name_1",
+      "description": "rule_description_1",
+      "version": "1.3",
+      "dqDimension": 3,
+      "isDataflowRule": false,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "domainRef": "store",
+            "operator": "eq",
+            "value": 1,
+            "conditions": []
+          },
+          {
+            "domainRef": "dropoff_date",
+            "operator": "eq",
+            "value": 1,
+            "conditions": []
+          }
+        ]
+      },
+      "validSuccessor": "rule_name_2",
+      "invalidSuccessor": "rule_name_2"
+    },
+    {
+      "name": "rule_name_2",
+      "description": "rule_description_2",
+      "version": "1.1",
+      "dqDimension": 6,
+      "isDataflowRule": true,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "operator": "neq",
+            "domainRef": "dropoff_date",
+            "value": 2,
+            "conditions": []
+          },
+          {
+            "operator": "neq",
+            "domainRef": "location",
+            "value": 2,
+            "conditions": []
+          }
+        ]
+      },
+      "validSuccessor": "rule_name_3",
+      "invalidSuccessor": ""
+    },
+    {
+      "name": "rule_name_3",
+      "description": "rule_description_3",
+      "version": "1.0",
+      "dqDimension": 2,
+      "isDataflowRule": false,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "domainRef": "location",
+            "operator": "neq",
+            "value": 3,
+            "conditions": []
+          },
+          {
+            "operator": "or",
+            "conditions": [
+              {
+                "domainRef": "store",
+                "operator": "eq",
+                "value": 1,
+                "conditions": []
+              },
+              {
+                "domainRef": "dropoff_date",
+                "operator": "eq",
+                "value": 2,
+                "conditions": []
+              }
+            ]
+          }
+        ]
+      },
+      "validSuccessor": "",
+      "invalidSuccessor": "rule_name_4"
+    },
+    {
+      "name": "rule_name_4",
+      "description": "rule_description_4",
+      "version": "1.0",
+      "dqDimension": 4,
+      "isDataflowRule": true,
+      "condition": {
+        "operator": "and",
+        "conditions": [
+          {
+            "domainRef": "location",
+            "operator": "neq",
+            "value": 3,
+            "conditions": []
+          },
+          {
+            "operator": "or",
+            "conditions": [
+              {
+                "domainRef": "amount",
+                "operator": "eq",
+                "value": 1,
+                "conditions": []
+              }
+            ]
+          }
+        ]
+      },
+      "validSuccessor": "",
+      "invalidSuccessor": ""
+    }
+  ]
+}
