@@ -30,7 +30,7 @@
       "Name": "rule_name_1",
       "Description": "rule_description_1",
       "Version": "1.1",
-      "DQDimension": 1,
+      "DQDimensionId": 1,
       "IsDataflowRule": false,
       "Condition": {
         "Operator": "and",
@@ -58,7 +58,7 @@
       "Name": "rule_name_2",
       "Description": "rule_description_2",
       "Version": "1.2",
-      "DQDimension": 5,
+      "DQDimensionId": 5,
       "IsDataflowRule": true,
       "Condition": {
         "Operator": "and",
@@ -86,7 +86,7 @@
       "Name": "rule_name_3",
       "Description": "rule_description_3",
       "Version": "1.1",
-      "DQDimension": 2,
+      "DQDimensionId": 2,
       "IsDataflowRule": true,
       "Condition": {
         "Operator": "and",
@@ -119,3 +119,4 @@
     }
   ]
 }
+
