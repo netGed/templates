@@ -1,6 +1,6 @@
 {
   "Id": "4567jkljk",
-  "Name": "RulebookTemplate_B",
+  "Name": "RulebookTemplate_E",
   "Metadata":
   {
     "Description": "Rulebook is used to validate US-adresses...",
@@ -165,3 +165,4 @@
     }
   ]
 }
+
